@@ -1,21 +1,24 @@
 import React, { Component } from "react";
 
-class Header extends Component {
-    render(){
-        return (
-            <div className = "container-fluid">
-                <div className = "row">
-                    <div className = "col-md-6 offset-4">
-                        <div className = "page-header">
-                            <h1>
-                                Contact List <span className = "badge badge-pill badge-success">{this.props.noContacts}</span>
-                            </h1>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        );
-    }
+export default class FilterControls extends Component {
+  render() {
+    return (
+      <div className="container-fluid">
+        <div className="row bg-warning">
+          <div className="col-md-12">
+            <h4>
+              <span>Filter </span>
+              <input type="text" placeholder="Name Search" />
+              <span> Gender: </span>
+              <select id="gender">
+                <option value="all">All</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
+            </h4>
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
-
-export default Header;
