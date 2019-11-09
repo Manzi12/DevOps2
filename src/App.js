@@ -18,6 +18,12 @@ class App extends Component {
         }
         });
     }
+
+    deleteContact = (key) => {
+      api.delete(key); 
+      this.setState({});                          
+  };
+
     render() {
         let contacts = api.getAll();
         return (
@@ -25,6 +31,7 @@ class App extends Component {
             <Header noContacts={contacts.length} />
             <FilterControls />
             <ContactList contacts={contacts} />
+            deleteHandler={this.deleteContact} />
         </div>
         );
     }

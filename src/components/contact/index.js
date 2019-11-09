@@ -32,6 +32,14 @@ class Contact extends Component {
     this.setState({ status: "", previousDetails: { email, phone } });
     api.update(this.state.previousDetails.phone, updatedEmail, updatedPhone);
 }; 
+
+handleDelete = () =>  this.setState({ status : 'del'} );
+handleConfirm = (e) => {
+e.preventDefault();
+this.props.deleteHandler(this.state.phone);
+};
+
+
   handleEmailChange = e => this.setState({ email: e.target.value });
   handlePhoneChange = e => this.setState({ phone: e.target.value });
   render() {
@@ -44,7 +52,13 @@ class Contact extends Component {
       activeButtons = buttons.edit;
       leftButtonHandler = this.handleSave;
       rightButtonHandler = this.handleCancel;
-    }
+    } else if (this.state.status === 'del' ) {
+      cardColor = "bg-warning";
+      activeButtons = buttons.delete;
+      leftButtonHandler = this.handleCancel;
+      rightButtonHandler = this.handleConfirm;
+  }
+
     return (
       <div className="col-sm-3">
         <div className={`card  ${cardColor}`}>
