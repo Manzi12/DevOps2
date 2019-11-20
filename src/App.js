@@ -2,7 +2,7 @@ import React, { Component,Fragment } from "react";
 import Header from "./components/header/";
 import ContactList from "./components/contactList/";
 import FilterControls from "./components/filterControls/";
-import request from "superagent";
+//import request from "superagent";
 import api from "./dataStore/stubAPI"; // NEW
 import _ from "lodash";
 
