@@ -32,15 +32,15 @@ class App extends Component {
                 : filteredContacts.filter(c => c.gender === this.state.gender);
             let sortedContacts = _.sortBy(filteredContacts, c => c.name.last);
             return (
-                <Fragment>
-                  <Header noContacts={sortedContacts.length} />
-                  <FilterControls onUserInput={this.handleChange} />
-                  <ContactList
-                    contacts={sortedContacts}
-                    deleteHandler={this.deleteContact}
-                  />
-                </Fragment>
-              );
+              <Fragment>
+                <Header noContacts={sortedContacts.length} />
+                <FilterControls onUserInput={this.handleChange} />
+                <ContactList
+                  contacts={sortedContacts}
+                  deleteHandler={this.deleteContact}
+                />
+              </Fragment>
+            );
     }
 }
 

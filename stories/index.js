@@ -8,6 +8,7 @@ import FilterControls from '../public/components/filterControls';
 import Contact from '../src/components/contact';
 import ContactList from '../src/components/contactList';
 import { action } from '@storybook/addon-actions';
+import PublicProfile from '../src/components/contactPublic/publicProfile';
 
 storiesOf("Contact List App/Header",module).add("default",() => (
     <Header noContacts = {10} />
@@ -76,3 +77,8 @@ storiesOf("Contact List App/Contact List", module)
   const samples = [sample, sample, sample, sample, sample]
   return <ContactList contacts={samples}/>
 });
+
+storiesOf("Contact List App/Contact Page/PublicProfile", module)
+.add("default", () => ( 
+   <PublicProfile user={sample}/>
+));
