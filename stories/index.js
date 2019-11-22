@@ -10,6 +10,7 @@ import ContactList from '../src/components/contactList';
 import { action } from '@storybook/addon-actions';
 import PublicProfile from '../src/components/contactPublic/publicProfile';
 import ContactPrivate from '../src/components/contactPrivate/';
+import ContactPrivateDetails from '../src/components/contactPrivate/';
 
 storiesOf("Contact List App/Header",module).add("default",() => (
     <Header noContacts = {10} />
@@ -88,3 +89,9 @@ storiesOf("Contact List App/Contact Page/ContactPrivate", module)
 .add("default", () => ( 
    <ContactPrivate user={sample}/>
 ));
+
+storiesOf("Contact List App/Contact Page/ContactPrivate", module)
+.add("default", () => ( 
+   <ContactPrivateDetails user={sample}/>
+));
+
