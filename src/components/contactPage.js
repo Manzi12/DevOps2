@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter,Route, Link } from "react-router-dom";
 import api from "../dataStore/stubAPI"; // NEW
 import ContactPublic from "../components/contactPublic/";
 import ContactPrivate from "../components/contactPrivate/";
@@ -11,8 +11,13 @@ const ContactPage = props => {
     <Fragment>
       {contact ? (
         <Fragment>
-          <ContactPublic user={contact} />           
-          <ContactPrivate user={contact} />
+          <ContactPublic user={contact} /> 
+           {!props.history.location.pathname.endsWith("/private") && (
+            <Link class="btn btn-primary active" to={`/contacts/${id}/private`}>See Private Data</Link>
+          )}
+          <Route path={`/contacts/:id/private`} 
+              render={ (props) => <ContactPrivate {...props} user={contact} /> } />
+
         </Fragment>
       ) : (
         <p>Waiting for contact details</p>
