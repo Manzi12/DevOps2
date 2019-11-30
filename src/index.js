@@ -7,6 +7,7 @@ import "../node_modules/bootstrap/dist/css/bootstrap.css";
 import App from "./App";
 import ContactPage from "./components/contactPage";
 
+
 class Router extends Component {
   componentDidMount() {
     request.get("https://randomuser.me/api/?results=50").end((error, res) => {
@@ -16,16 +17,21 @@ class Router extends Component {
         this.setState({});
       } else {
         console.log(error);
+        
       }
     });
   }
 
+  
   render() {
+    const os  = require("os");
     return (
        <BrowserRouter>
         <div className="jumbotron">
+          <h3>the os id : {os.hostname()}</h3>
           <div className="container-fluid ">
             <Switch>
+              <Route path="/index.js" component={os}/>
               <Route path="/contacts/:id" component={ContactPage} />
               <Route exact path="/" component={App} />
               <Redirect from="*" to="/" />

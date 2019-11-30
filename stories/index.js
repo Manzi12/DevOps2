@@ -6,6 +6,7 @@ import { storiesOf } from '@storybook/react';
 import '../node_modules/bootstrap/dist/css/bootstrap.css';
 import FilterControls from '../public/components/filterControls';
 import Contact from '../src/components/contact';
+import Os from '../src/components/os';
 import ContactList from '../src/components/contactList';
 import { action } from '@storybook/addon-actions';
 import PublicProfile from '../src/components/contactPublic/publicProfile';
@@ -93,5 +94,10 @@ storiesOf("Contact List App/Contact Page/ContactPrivate", module)
 storiesOf("Contact List App/Contact Page/ContactPrivate", module)
 .add("default", () => ( 
    <ContactPrivateDetails user={sample}/>
+));
+
+storiesOf("OS/OS", module)
+.add("default", () => ( 
+   <Os/>
 ));
 
